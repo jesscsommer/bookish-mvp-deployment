@@ -86,7 +86,7 @@ const AuthForm = () => {
         validationSchema: isLogin ? null : userSchema,
         onSubmit: (values) => {
             (async () => {
-                const endpoint = isLogin ? "/login" : "/signup"
+                const endpoint = isLogin ? "/api/v1/login" : "/api/v1/signup"
                 const res = await fetch(endpoint, {
                     method: "POST",
                     headers: {

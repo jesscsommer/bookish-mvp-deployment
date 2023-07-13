@@ -24,7 +24,7 @@ const BookCard = ({ book, shelf }) => {
     const removeFromShelf = () => {
         (async () => {
             const book_shelf_id = user?.book_shelves?.find(bs => bs.book_id === book.id && bs.shelf_id === shelf.id)?.id
-            const res = await fetch(`/book_shelves/${book_shelf_id}`, { method: "DELETE"})
+            const res = await fetch(`/api/v1/book_shelves/${book_shelf_id}`, { method: "DELETE"})
             if (res.ok) {
                 shelf["books"] = shelf.books.filter(b => b.id !== book.id)
                 shelfDispatch({ type: "patch", payload: shelf })

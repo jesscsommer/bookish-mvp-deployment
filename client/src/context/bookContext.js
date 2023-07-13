@@ -25,7 +25,7 @@ const BookProvider = ({ children }) => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch("/books")
+            const res = await fetch("/api/v1/books")
             if (res.ok) {
                 const books = await res.json()
                 dispatch({ type: "fetch", payload: books })

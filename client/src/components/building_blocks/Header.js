@@ -44,7 +44,7 @@ const Header = () => {
 
     const handleLogout = () => {
         (async () => {
-            const res = await fetch("/logout", { method: "POST", headers: {
+            const res = await fetch("/api/v1/logout", { method: "POST", headers: {
                 "Content-Type": "application/json"
             } })
             if (res.ok) {

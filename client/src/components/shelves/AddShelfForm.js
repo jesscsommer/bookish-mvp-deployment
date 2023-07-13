@@ -45,7 +45,7 @@ const AddShelfForm = () => {
         onSubmit: (values, { resetForm }) => {
             // debugger 
             (async () => {
-                const res = await fetch("/shelves", {
+                const res = await fetch("/api/v1/shelves", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

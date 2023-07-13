@@ -16,7 +16,7 @@ const BookDetail = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`/books/${book_id}`)
+            const res = await fetch(`/api/v1/books/${book_id}`)
             if (res.ok) {
                 const bookData = await res.json()
                 setCurrentBook(bookData)

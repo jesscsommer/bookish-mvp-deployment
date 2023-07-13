@@ -45,7 +45,7 @@ const AddToShelfForm = ({ book }) => {
         validationSchema: shelfSchema,
         onSubmit: (values, { resetForm }) => {
             (async () => {
-                const res = await fetch("/book_shelves", {
+                const res = await fetch("/api/v1/book_shelves", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
