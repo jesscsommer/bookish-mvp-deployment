@@ -86,7 +86,7 @@ const AuthForm = () => {
         validationSchema: isLogin ? null : userSchema,
         onSubmit: (values) => {
             (async () => {
-                const endpoint = isLogin ? "/api/v1/login" : "/api/v1/signup"
+                const endpoint = isLogin ? "/login" : "/signup"
                 const res = await fetch(endpoint, {
                     method: "POST",
                     headers: {
@@ -213,7 +213,7 @@ const AuthForm = () => {
                         {isLogin ? "Log in" : "Sign up"}
                     </Button>
                     <Link
-                        href="/api/v1/login_with_google">
+                        href="/login_with_google">
                         <Button
                             fullWidth
                             variant="contained"
