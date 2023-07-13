@@ -84,7 +84,7 @@ app.register_blueprint(user_by_username_bp)
 @app.route("/profile/<string:username>")
 @app.route("/books/<int:id>")
 @app.route("/login")
-@app.route("/login_with_google")
+# @app.route("/login_with_google")
 @app.route("/404")
 def index(id=0): 
     return render_template("index.html")
