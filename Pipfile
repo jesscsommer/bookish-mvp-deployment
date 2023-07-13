@@ -20,6 +20,9 @@ oauthlib = "*"
 flask-login = "*"
 requests = "*"
 pyopenssl = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+faker = "*"
 
 [dev-packages]
 ipdb = "*"

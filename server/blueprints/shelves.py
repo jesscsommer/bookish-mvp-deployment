@@ -8,7 +8,7 @@ from blueprints import (
     g
 )
 
-from config import app, current_user
+from config import app
 from models import db
 from models.shelf import Shelf
 from models.user import User

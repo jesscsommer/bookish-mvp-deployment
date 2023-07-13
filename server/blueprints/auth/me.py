@@ -16,9 +16,7 @@ from config import (
     set_refresh_cookies,
     jwt_required,
     get_jwt_identity,
-    cache,
-    login_required,
-    current_user
+    cache
 ) 
 
 from models import db

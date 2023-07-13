@@ -8,10 +8,7 @@ from blueprints import (
     g
 )
 
-from config import (
-    app,
-    login_user
-) 
+from config import app
 from models import db
 from models.user import User
 from blueprints.user_by_id import user_schema

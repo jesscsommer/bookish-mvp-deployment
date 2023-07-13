@@ -8,7 +8,7 @@ from blueprints import (
     g
 )
 
-from config import app, logout_user, login_required
+from config import app
 from models import db
 from blueprints.auth.me import me
 

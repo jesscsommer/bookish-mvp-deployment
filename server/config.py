@@ -8,20 +8,12 @@ from flask import (
 from flask_bcrypt import Bcrypt
 from flask_caching import Cache
 from flask_cors import CORS
-from flask_login import (
-    LoginManager,
-    current_user,
-    login_required,
-    login_user,
-    logout_user,
-    UserMixin
-)
 from flask_migrate import Migrate
 from oauthlib.oauth2 import WebApplicationClient
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-from os import environ
+import os
 from dotenv import load_dotenv
 from flask_jwt_extended import (
     create_access_token, 
@@ -39,13 +31,18 @@ from datetime import timedelta, datetime, timezone
 import requests
 
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_url_path="",
+    static_folder="../client/build",
+    template_folder="../client/build"
+)
 
 load_dotenv(".env")
-app.secret_key = environ.get("SECRET_KEY")
-app.config["JWT_SECRET_KEY"] = environ.get("JWT_SECRET_KEY")
+app.secret_key = os.environ.get("SECRET_KEY")
+app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.json.compact = False
@@ -72,26 +69,10 @@ app.config["JWT_TOKEN_LOCATION"] = ["headers", "cookies"]
 app.config["CACHE_TYPE"] = "SimpleCache"
 cache = Cache(app)
 
-GOOGLE_CLIENT_ID = environ.get("GOOGLE_CLIENT_ID", None)
-GOOGLE_CLIENT_SECRET = environ.get("GOOGLE_CLIENT_SECRET", None)
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
-
-# @refresh_bp.route("/refresh", methods=["POST"])
-# @jwt_required(refresh=True)
-# def refresh():
-#     user_id = get_jwt_identity()
-#     user = db.session.get(User, user_id)
-
-#     new_access_token = create_access_token(identity=user_id)
-#     res = make_response({"user": user_schema.dump(user)}, 200)
-
-#     set_access_cookies(res, new_access_token)
-
-#     return res

@@ -10,12 +10,9 @@ from blueprints import (
 
 from config import (
     app,
-    login_user,
     client,
     redirect,
     url_for,
-    login_required,
-    logout_user
 ) 
 
 from models import db

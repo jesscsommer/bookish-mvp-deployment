@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import request
+from flask import request, render_template
 from flask_restful import Resource
 
 from config import (
@@ -13,18 +13,13 @@ from config import (
     create_access_token, 
     set_access_cookies, 
     jwt_required,
-    login_manager,
-    current_user,
     requests,
     GOOGLE_DISCOVERY_URL,
     GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET,
-    login_user,
     client,
     redirect,
     url_for,
-    login_required,
-    logout_user
 )
 from datetime import timedelta, datetime, timezone
 import json
@@ -83,6 +78,16 @@ app.register_blueprint(logout_bp)
 app.register_blueprint(me_bp)
 
 app.register_blueprint(user_by_username_bp)
+
+@app.route("/")
+@app.route("/shelves")
+@app.route("/profile/<string:username>")
+@app.route("/books/<int:id>")
+@app.route("/login")
+@app.route("/login_with_google")
+@app.route("/404")
+def index(id=0): 
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True, ssl_context="adhoc")

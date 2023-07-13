@@ -12,12 +12,9 @@ from blueprints import (
 
 from config import (
     app,
-    login_user,
     client,
     redirect,
     url_for,
-    login_required,
-    logout_user,
     requests,
     GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET,
