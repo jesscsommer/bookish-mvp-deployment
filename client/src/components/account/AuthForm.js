@@ -213,7 +213,7 @@ const AuthForm = () => {
                         {isLogin ? "Log in" : "Sign up"}
                     </Button>
                     <Link
-                        href="/login_with_google">
+                        href="/api/v1/login_with_google">
                         <Button
                             fullWidth
                             variant="contained"
