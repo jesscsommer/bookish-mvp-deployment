@@ -213,7 +213,7 @@ const AuthForm = () => {
                         {isLogin ? "Log in" : "Sign up"}
                     </Button>
                     <Link
-                        href="https://127.0.0.1:5555/login_with_google">
+                        href="/login_with_google">
                         <Button
                             fullWidth
                             variant="contained"
