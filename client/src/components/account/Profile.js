@@ -22,7 +22,7 @@ const Profile = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`/api/v1/users/${username}`)
+            const res = await fetch(`/users/${username}`)
             if (res.ok) {
                 const data = await res.json()
                 setProfileUser(data)
