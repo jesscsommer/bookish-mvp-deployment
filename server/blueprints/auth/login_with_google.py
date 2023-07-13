@@ -97,8 +97,8 @@ def callback():
         db.session.commit()
 
         session["user_id"] = user.id 
-        return redirect("http://127.0.0.1:4000"), 301
+        return redirect("/"), 301
     
     
     session["user_id"] = existing_user.id 
-    return redirect("http://127.0.0.1:4000"), 301
+    return redirect("/"), 301
