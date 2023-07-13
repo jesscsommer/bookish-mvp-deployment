@@ -86,7 +86,7 @@ app.register_blueprint(user_by_username_bp)
 @app.route("/login")
 # @app.route("/login_with_google")
 @app.route("/404")
-def index(id=0): 
+def index(id=0, username=""): 
     return render_template("index.html")
 
 if __name__ == '__main__':
