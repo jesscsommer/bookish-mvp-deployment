@@ -21,7 +21,7 @@ const UserProvider = ({ children }) => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch("/api/v1/me")
+            const res = await fetch("/me")
             // debugger
             if (res.ok) {
                 const data = await res.json()
