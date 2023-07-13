@@ -57,10 +57,12 @@ const EditProfileForm = () => {
         display_name: yup
         .string()
         .min(5, "Display name must be at least 5 characters")
-        .max(50, "Display name must be at most 50 characters"),
+        .max(50, "Display name must be at most 50 characters")
+        .notRequired(),
         bio: yup
         .string()
         .max(250, "Bio must be at most 250 characters")
+        .notRequired()
     });
 
     const formik = useFormik({
